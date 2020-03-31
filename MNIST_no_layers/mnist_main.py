@@ -100,12 +100,3 @@ with torch.no_grad():
 
 # Save the model checkpoint
 torch.save(model.state_dict(), 'model.ckpt')
-
-# Plotting:
-# 1. Append data to text file:
-#    loss, optimizer, batch_size, num_epochs, learning_rate, accuracy
-# 2. Plot using data in the file
-
-f = open("mnist_learning_rate.txt", "a")
-f.write("{}, {}%\n".format(learning_rate, accuracy))
-f.close()
