@@ -36,25 +36,8 @@ test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
                                           shuffle=False)
 
 # Logistic regression model
+model = nn.Linear(input_size, num_classes)
 
-class Model(torch.nn.Module):
-    def __init__(self, input_size, no_of_classes):
-        super(Model, self).__init__()
-        self.ip = input_size
-        self.nb_class = no_of_classes
-
-        self.h1 = nn.Linear(self.ip, 512)
-        self.h2 = nn.Linear(512, self.nb_class)
-
-        self.relu = nn.ReLU()
-
-    def forward(self, X):
-        h1 = self.relu(self.h1(X))
-        op = self.h2(h1)
-        return op
-
-# model = nn.Linear(input_size, num_classes)
-model = Model(input_size, num_classes)
 # Loss annn.Lid optimizer
 # nn.CrossEntropyLoss() computes softmax internally
 criterion = nn.CrossEntropyLoss()  # Read About this Loss + Try Other Losses
